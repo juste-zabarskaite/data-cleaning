@@ -49,4 +49,5 @@ At this point the final data set looks like:
     > 6             LAYING       1         0.2215982      -0.040513953        -0.1132036
 
 ## function saveoutput - save output as csv file
+* Write output data to `output.txt`
 * Write output data to `output.csv`

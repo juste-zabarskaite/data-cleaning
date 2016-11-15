@@ -16,7 +16,8 @@ execution <- function() {
     data <- bindtables() ## read & bind data tables
     data <- fixvariables(data) ## rename activity & other variable names to make them descriptive
     data <- organiseoutput(data) ## return organised output with selected variables
-    saveoutput(data) ## save output as csv file
+    saveoutput(data) ## save output
+    
     return(head(data[,1:5]))
 }
 
@@ -106,9 +107,12 @@ organiseoutput <- function(data) {
     return(data)    
 }
 
-## save output as csv file
+## save output
 saveoutput <- function(data) {
     
-    ## save file as cvs
+    ## save data as txt file 
+    write.table(data, file="output.txt", row.name=FALSE)
+    
+    ## save data as csv file
     write.csv(data, file="output.csv")
 }
