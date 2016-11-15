@@ -39,11 +39,14 @@ This document describes the code inside `run_analysis.R` by each function.
 
 At this point the final data set looks like:
 
-    > head(meanAndStdAverages[, 1:5], n=3)
-      Activity Subject tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z
-    1  WALKING       1         0.2773308       -0.01738382        -0.1111481
-    2  WALKING       2         0.2764266       -0.01859492        -0.1055004
-    3  WALKING       3         0.2755675       -0.01717678        -0.1126749
+    > head(data[,1:5])
+                  Activity Subject tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z
+    > 1            WALKING       1         0.2773308      -0.017383819        -0.1111481
+    > 2   WALKING_UPSTAIRS       1         0.2554617      -0.023953149        -0.0973020
+    > 3 WALKING_DOWNSTAIRS       1         0.2891883      -0.009918505        -0.1075662
+    > 4            SITTING       1         0.2612376      -0.001308288        -0.1045442
+    > 5           STANDING       1         0.2789176      -0.016137590        -0.1106018
+    > 6             LAYING       1         0.2215982      -0.040513953        -0.1132036
 
 ## function saveoutput - save output as csv file
 * Write output data to `output.csv`
