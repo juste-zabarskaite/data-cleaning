@@ -17,7 +17,7 @@ execution <- function() {
     data <- fixvariables(data) ## rename activity & other variable names to make them descriptive
     data <- organiseoutput(data) ## return organised output with selected variables
     saveoutput(data) ## save output as csv file
-    return(data)
+    return(head(data[,1:5]))
 }
 
 ## download source files
@@ -80,14 +80,14 @@ bindtables <- function() {
 ## rename activity & other variable names to make them descriptive
 fixvariables <- function(data) {
     
-    ## add descriptive activity names
-    file <- paste0(path, "/activity_labels.txt") ## 'activity_labels.txt': Links the class labels with their activity name.
-    labelAct <- read.table(file) ## 6 activities
+    ## add descriptive activity names from 'activity_labels.txt': Links the class labels with their activity name.
+    filename <- "UCI HAR Dataset/activity_labels.txt"
+    labelAct <- read.table(filename) ## 6 activities
     data$Activity <- factor(data$Activity, levels=labelAct[,1], labels=labelAct[,2]) ## add Activity names
     
-    ## add descriptive variable names
-    file <- paste0(path, "/features.txt") ## 'features.txt': List of all features.
-    labelVar <- read.table(file) ## 561 variables
+    ## add descriptive variable names from 'features.txt': List of all features.
+    filename <- "UCI HAR Dataset/features.txt"
+    labelVar <- read.table(filename) ## 561 variables
     colnames(data)[] <- c("Activity", "Subject", as.character(labelVar[,2])) ## add variable names
     
     return(data)
